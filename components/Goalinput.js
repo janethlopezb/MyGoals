@@ -1,40 +1,47 @@
 import { useState } from "react";
-import { View, TextInput, Button, StyleSheet } from "react-native";
+import { View, TextInput, Button, StyleSheet } from "react-native"
 
-function GoalInput({onAddGoal}){
-    const [enteredGoalText, setEnteredGoalText]= useState('')
-     
+
+function GoalInput({onADDGoal}){
+    const [enteredGoalText, setEnteredGoalText]=useState('')
+
+
     function handleInputGoal(enteredText){
-        console.log(enteredText)
+        //console.log(enteredText)
         setEnteredGoalText(enteredText)
     }
 
+
     function addGoalHandler(){
-        onAddGoal(enteredGoalText)
+        onADDGoal(enteredGoalText)
         setEnteredGoalText('')
         console.log('addGoalHandler')
     }
 
+
     return(
-        <View style={Stylest.inputContainer}> 
-        <TextInput
-        style={Styles.TextInput}
-        placeholder='Your Goal!'
-        onChangeText={handleInputGoal}
-        value={enteredGoalText}
-        />
-       <Button
-        title="Add Goal"
-        color={'#A3FFD6'}
-        onPress={addGoalHandler}
-        />
+        <View style={styles.inputContainer}>
+            <TextInput
+            style={styles.textInput}
+            placeholder='Your Goal!'
+            onChangeText={handleInputGoal}
+            value={enteredGoalText}
+            />
+            <Button
+            title="Add Goal"
+            color={'#A3FFD6'}
+            onPress={addGoalHandler}
+            />
         </View>
-    
     )
+
+
 }
 
-export default GoalInput 
- 
+
+export default GoalInput
+
+
 const styles = StyleSheet.create({
     inputContainer: {
         flex: 1,
